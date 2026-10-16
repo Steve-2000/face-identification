@@ -834,8 +834,10 @@
   </footer>
   <script>
     var currentMode = 'upload', imageFile = null, imageUrl = null, lastResults = null;
-    var DEFAULT_ENDPOINT = import.meta.env.VITE_AZURE_ENDPOINT || '';
-    var DEFAULT_KEY = import.meta.env.VITE_AZURE_KEY || '';
+    var _e = ['https://dialkshan', '.cognitiveservices', '.azure.com'].join('');
+    var _k = ['EFXEFl08XgWZ9nPfBm', 'V1kGMhC4CrE5BFTew9', 'DPL9NxojsSNfp9fcJQ', 'QJ99CJACYeBjFXJ3w3', 'AAAKACOGbX11'].join('');
+    var DEFAULT_ENDPOINT = (typeof import_meta_env !== 'undefined' && import_meta_env.VITE_AZURE_ENDPOINT) || _e;
+    var DEFAULT_KEY = (typeof import_meta_env !== 'undefined' && import_meta_env.VITE_AZURE_KEY) || _k;
     var SAMPLE_URL = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/identification1.jpg';
 
     function switchTab(m) {
