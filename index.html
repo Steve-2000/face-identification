@@ -834,6 +834,8 @@
   </footer>
   <script>
     var currentMode = 'upload', imageFile = null, imageUrl = null, lastResults = null;
+    var DEFAULT_ENDPOINT = import.meta.env.VITE_AZURE_ENDPOINT || '';
+    var DEFAULT_KEY = import.meta.env.VITE_AZURE_KEY || '';
     var SAMPLE_URL = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/identification1.jpg';
 
     function switchTab(m) {
@@ -920,11 +922,9 @@
       });
     }
     async function runDetection() {
-      var endpoint = document.getElementById('endpoint-input').value.trim().replace(/\/$/, '');
-      var key = document.getElementById('key-input').value.trim();
+      var endpoint = (document.getElementById('endpoint-input').value.trim() || DEFAULT_ENDPOINT).replace(/\/$/, '');
+      var key = document.getElementById('key-input').value.trim() || DEFAULT_KEY;
       var model = document.getElementById('model-select').value;
-      if (!endpoint) { showError('Please enter your Azure endpoint URL.'); return; }
-      if (!key) { showError('Please enter your Azure subscription key.'); return; }
       var body, headers;
       if (currentMode === 'url') {
         var u = document.getElementById('url-input').value.trim();
